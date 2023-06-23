@@ -1118,6 +1118,18 @@
   resolved "https://registry.npmmirror.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@maptalks/feature-filter@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@maptalks/feature-filter/-/feature-filter-1.3.0.tgz#dd004d65783e7310696d8eabf8bb5a8618dd6097"
+  integrity sha512-O6GcFzPuCbz6bO4TNBnmP8VunS0GexTzZ4m36A4HbYQICY1cplpFgntX2fyB/TY3cZrFRGoeMePBeMZFMOOhcQ==
+
+"@maptalks/function-type@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@maptalks/function-type/-/function-type-1.3.1.tgz#d5b15bf972ce1e77bd2c19f1a765bdb979189048"
+  integrity sha512-VoKE84IDhAn1Co25IVggptNzZdQ3fPUCRlw8+SBxyW8ATT45kFDqYECktqnNW445h44tT+3Ge5fyP+dHVCDP6g==
+  dependencies:
+    colorin "^0.2.0"
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.npmmirror.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz#dbf733a965ca47b1973177dc0bb6c889edcfb129"
@@ -2349,6 +2361,11 @@ colorette@^2.0.10:
   resolved "https://registry.npmmirror.com/colorette/-/colorette-2.0.20.tgz#9eb793e6833067f7235902fcd3b09917a000a95a"
   integrity sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==
 
+colorin@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/colorin/-/colorin-0.2.0.tgz#5bbd10d7359ce5a93772ba621d0e6199cf1d1a43"
+  integrity sha512-sdsDdBwR1PF5fMABS1p7tyy0LRk4mAkw4BUI+zjXlmhQ9nQnjnHOOe9e099F4FxfJl0DHCbvgabR2w4/zTajyw==
+
 commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.npmmirror.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
@@ -3293,6 +3310,11 @@ fresh@0.5.2:
   resolved "https://registry.npmmirror.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
   integrity sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==
 
+frustum-intersects@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/frustum-intersects/-/frustum-intersects-0.1.0.tgz#d1d144099a40d8c5168b62acc83731434f5fa709"
+  integrity sha512-W0S6dmX5LJLtamimyuKhvbkpDTm5eVfMgk4X9yXNyWQ1zZ/cMm0PZoeX9Pm0tL302l+erQVrdfRGhV3ILfeTeQ==
+
 fs-extra@^9.1.0:
   version "9.1.0"
   resolved "https://registry.npmmirror.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
@@ -4081,6 +4103,18 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
+
+maptalks@^1.0.0-rc.22:
+  version "1.0.0-rc.22"
+  resolved "https://registry.yarnpkg.com/maptalks/-/maptalks-1.0.0-rc.22.tgz#f424870f53e982dd828a602a1e75a3afe05d4876"
+  integrity sha512-YrotwPPAF3SS4J5j9ib2pb8R6Su3llUZSd+xDluWvaBJ3KlVP6h3wJDGiB7K5M8L0e85x/x8HVADXytuTWzpyA==
+  dependencies:
+    "@maptalks/feature-filter" "^1.3.0"
+    "@maptalks/function-type" "^1.3.1"
+    frustum-intersects "^0.1.0"
+    rbush "^2.0.2"
+    simplify-js "^1.2.1"
+    zousan "^2.3.3"
 
 mdn-data@2.0.14:
   version "2.0.14"
@@ -4943,6 +4977,11 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmmirror.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+quickselect@^1.0.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/quickselect/-/quickselect-1.1.1.tgz#852e412ce418f237ad5b660d70cffac647ae94c2"
+  integrity sha512-qN0Gqdw4c4KGPsBOQafj6yj/PA6c/L63f6CaZ/DCF/xF4Esu3jVmKLUDYxghFx8Kb/O7y9tI7x2RjTSXwdK1iQ==
+
 randombytes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmmirror.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -4964,6 +5003,13 @@ raw-body@2.5.1:
     http-errors "2.0.0"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+rbush@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/rbush/-/rbush-2.0.2.tgz#bb6005c2731b7ba1d5a9a035772927d16a614605"
+  integrity sha512-XBOuALcTm+O/H8G90b6pzu6nX6v2zCKiFG4BJho8a+bY6AER6t8uQUZdi5bomQc0AprCWhEGa7ncAbbRap0bRA==
+  dependencies:
+    quickselect "^1.0.1"
 
 read-pkg-up@^7.0.1:
   version "7.0.1"
@@ -5353,6 +5399,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   version "3.0.7"
   resolved "https://registry.npmmirror.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
+
+simplify-js@^1.2.1:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/simplify-js/-/simplify-js-1.2.4.tgz#7aab22d6df547ffd40ef0761ccd82b75287d45c7"
+  integrity sha512-vITfSlwt7h/oyrU42R83mtzFpwYk3+mkH9bOHqq/Qw6n8rtR7aE3NZQ5fbcyCUVVmuMJR6ynsAhOfK2qoah8Jg==
 
 sirv@^1.0.7:
   version "1.0.19"
@@ -6174,3 +6225,8 @@ yorkie@^2.0.0:
     is-ci "^1.0.10"
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
+
+zousan@^2.3.3:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/zousan/-/zousan-2.5.1.tgz#514a8aad3cbba412fb59a4e0ebaffdd72e2dd4c6"
+  integrity sha512-ZER+1EJNPHs9G3I6kTqhTmeqPjdU8XoaSIFzaUcSWmxcZBeXMuf5LM6Ih8LLNlQ46wg2Au+3ayn7KgjklVnOfA==
