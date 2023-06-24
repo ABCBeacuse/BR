@@ -55,6 +55,10 @@ export default {
             this.isRoller = !this.isRoller;
         },
         handleShow(key) {
+            if(this[key]) {
+                this[key] = false;
+                return;
+            }
             this.$set(this.showArray, 0, key);
         }
     }
