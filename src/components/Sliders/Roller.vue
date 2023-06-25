@@ -19,6 +19,7 @@ export default {
             return this.$store.getters.getMapObj
         },
         controlLayer: function () {
+            this.hasSet = false;
             return this.$store.getters.getCurrentNewLayer;
         }
     },

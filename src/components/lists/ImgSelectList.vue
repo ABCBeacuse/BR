@@ -49,6 +49,11 @@ export default {
     mounted() {
         this.initBaseMapList()
     },
+    watch: {
+      currentNewLayer(newVal) {
+          this.$store.commit("setCurrentNewLayer", newVal)
+      }
+    },
     data() {
         return {
             baseImage: "",
@@ -76,6 +81,7 @@ export default {
             if (this.currentNewLayer !== undefined) {
                 this.mapObj.removeLayer(this.currentNewLayer);
             }
+            this.currentNewLayer = undefined;
         },
         /**
          * 底图选择
@@ -114,7 +120,6 @@ export default {
             this.cleanCurrentNewLayer();
             this.currentNewLayer = creatTileLayer(`new_${row.id}`, baseTilesUrl);
             this.mapObj.addLayer(this.currentNewLayer);
-            this.$store.commit("setCurrentNewLayer", this.currentNewLayer)
         }
     }
 }
