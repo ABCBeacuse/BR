@@ -34,7 +34,8 @@ export default {
                 return;
             }
             if (!this.hasSet) {
-                enableShutter(this.map, this.controlLayer, this.rollerValue)
+                enableShutter(this.map, this.controlLayer, this.$refs.slider);
+                this.hasSet = true;
             }
             this.controlLayer.getRenderer().setToRedraw();
         }

@@ -19,9 +19,11 @@ export const creatTileLayer = (layerId, path) => {
 /**
  * 控制一个 TileLayer 的卷帘效果
  *
- * @param rollWidth
+ * @param mapObj
+ * @param layer
+ * @param controlDom
  */
-export const enableShutter = (mapObj, layer, rollWidth) => {
+export const enableShutter = (mapObj, layer, controlDom) => {
     if (layer === undefined) {
         return;
     }
@@ -34,7 +36,7 @@ export const enableShutter = (mapObj, layer, rollWidth) => {
             return layerImage;
         }
         const ctx = renderer.context;
-        const width = renderer.canvas.width * (rollWidth / 100);
+        const width = renderer.canvas.width * (controlDom.firstValue / 100);
         const height = ctx.canvas.height;
 
         const drawnRect = document.createElement('canvas');
