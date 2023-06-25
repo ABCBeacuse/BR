@@ -15,6 +15,10 @@
                     :data="tableData"
                     border
                     style="width: 100%"
+                    highlight-current-row
+                    :cell-style="{'text-align': 'center','height': '40px'}"
+                    :header-cell-style="{'text-align': 'center'}"
+                    max-height="350"
             >
                 <el-table-column
                         v-for="column in tableConfig"
@@ -25,11 +29,12 @@
                 >
                 </el-table-column>
                 <el-table-column
-                        fixed="right"
                         label="操作"
-                        width="150"
+                        width="100"
                 >
-                    <slot name="options"></slot>
+                    <template v-slot:default="scope">
+                        <slot name="controls" :row="scope.row"></slot>
+                    </template>
                 </el-table-column>
             </el-table>
         </div>

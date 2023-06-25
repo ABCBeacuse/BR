@@ -2,6 +2,8 @@
     <div id="img_container"></div>
 </template>
 <script>
+import {creatTileLayer} from "@/utils/layerOptions";
+
 export default {
     name: "ImgContainer",
     data() {
@@ -14,8 +16,8 @@ export default {
     },
     methods: {
         init() {
-            const baseLayer = this.creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.jpg")
-            const nowLayer = this.creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.jpg")
+            const baseLayer = creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.jpg")
+            const nowLayer = creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.jpg")
             this.map = new this.$MapTalk.Map('img_container', {
                 center: [-0.09270712, 51.50615],
                 zoom: 17,
@@ -24,21 +26,7 @@ export default {
                 baseLayer,
                 layer: [nowLayer]
             })
-        },
-        /**
-         * 获取 TileLayer 图层
-         * @param layerId 图层ID
-         * @param path 图层路径
-         * @returns {*}
-         */
-        creatTileLayer(layerId, path) {
-            return new this.$MapTalk.TileLayer(layerId, {
-                'urlTemplate': path,
-                subdomains: ['a', 'b', 'c', 'd'],
-                // 移动缩放时强制渲染
-                'forceRenderOnMoving': true,
-                'forceRenderOnZooming': true
-            })
+            this.$store.commit("setMapObj", this.map)
         }
     }
 }
