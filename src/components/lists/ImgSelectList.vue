@@ -21,7 +21,8 @@
                     </el-select>
                 </template>
                 <template #controls="{row}">
-                    <el-button type="text" size="small" @click="selectNewMapLayer(row)">选择该图片</el-button>
+                    <el-button v-if="idConfig.newId === row?.id" type="text" size="small" @click="selectNewMapLayer(row)">选择该图片</el-button>
+                    <i v-if="idConfig.newId === row?.id" class="el-icon-check" style="color: #67C23A;font-weight: 1000;" />
                 </template>
             </BaseListLayout>
         </transition>
@@ -50,9 +51,15 @@ export default {
         this.initBaseMapList()
     },
     watch: {
-      currentNewLayer(newVal) {
-          this.$store.commit("setCurrentNewLayer", newVal)
-      }
+        currentNewLayer(newVal) {
+            this.$store.commit("setCurrentNewLayer", newVal)
+        },
+        idConfig: {
+            handler(newVal) {
+                this.$store.commit("setConfig", newVal);
+            },
+            deep: true
+        }
     },
     data() {
         return {
@@ -61,7 +68,11 @@ export default {
             associationList: [],
             tableConfig: [{label: "图片名称", prop: "pic_name"}],
             mapObj: undefined,
-            currentNewLayer: undefined
+            currentNewLayer: undefined,
+            idConfig: {
+                baseId: '',
+                newId: ''
+            }
         }
     },
     methods: {
@@ -82,6 +93,7 @@ export default {
                 this.mapObj.removeLayer(this.currentNewLayer);
             }
             this.currentNewLayer = undefined;
+            this.idConfig.newId = ''
         },
         /**
          * 底图选择
@@ -92,6 +104,7 @@ export default {
             this.mapObj.removeBaseLayer();
             // 清除之前基于底图添加的新图图层
             this.cleanCurrentNewLayer();
+            this.idConfig.baseId = obj?.id ?? ''
             if (!obj) {
                 this.associationList = [];
                 return
@@ -119,6 +132,7 @@ export default {
             // 切换新图图层，需要先清除之前添加的新图图层
             this.cleanCurrentNewLayer();
             this.currentNewLayer = creatTileLayer(`new_${row.id}`, baseTilesUrl);
+            this.idConfig.newId = row.id
             this.mapObj.addLayer(this.currentNewLayer);
         }
     }

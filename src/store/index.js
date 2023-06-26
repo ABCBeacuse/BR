@@ -6,7 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         mapObj: undefined,
-        currentNewLayer: undefined
+        currentNewLayer: undefined,
+        config: {
+            baseId: '',
+            newId: ''
+        }
     },
     getters: {
         getMapObj: (state) => {
@@ -14,6 +18,9 @@ export default new Vuex.Store({
         },
         getCurrentNewLayer: (state) => {
             return state.currentNewLayer;
+        },
+        getConfig: (state) => {
+            return state.config
         }
     },
     mutations: {
@@ -22,6 +29,9 @@ export default new Vuex.Store({
         },
         setCurrentNewLayer(state, obj) {
             state.currentNewLayer = obj;
+        },
+        setConfig(state, obj) {
+            state.config = {...obj}
         }
     },
     actions: {},

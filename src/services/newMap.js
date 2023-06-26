@@ -1,4 +1,5 @@
 import myAxios from "@/plugins/myAxios";
+import Vue from "vue";
 
 /**
  * 根据选中的底图，来获取与底图相关的新图列表
@@ -12,7 +13,7 @@ export const getNewMapListById = async (ori_id) => {
         }
     })
     if (res?.result.length === 0) {
-        this.$notify({
+        Vue.prototype.$notify({
             title: '警告',
             message: '获取该底图相关新图列表为空',
             type: 'warning'

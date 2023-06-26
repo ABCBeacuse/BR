@@ -16,7 +16,7 @@ export default {
     },
     computed: {
         map: function () {
-            return this.$store.getters.getMapObj
+            return this.$store.getters.getMapObj;
         },
         controlLayer: function () {
             this.hasSet = false;
