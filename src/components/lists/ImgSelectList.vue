@@ -21,7 +21,7 @@
                     </el-select>
                 </template>
                 <template #controls="{row}">
-                    <el-button v-if="idConfig.newId === row?.id" type="text" size="small" @click="selectNewMapLayer(row)">选择该图片</el-button>
+                    <el-button :disabled="idConfig.newId === row?.id" type="text" size="small" @click="selectNewMapLayer(row)">选择该图片</el-button>
                     <i v-if="idConfig.newId === row?.id" class="el-icon-check" style="color: #67C23A;font-weight: 1000;" />
                 </template>
             </BaseListLayout>

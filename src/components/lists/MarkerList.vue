@@ -84,7 +84,7 @@ export default {
             const {baseId, newId} = obj;
             if (baseId !== "" && newId !== "") {
                 const {boxes, tilesUrl} = await getMarkersById(baseId, newId);
-                const baseMapUrl = `${myAxios.defaults.baseURL}/${tilesUrl}/{z}/{y}/{x}.jpg`;
+                const baseMapUrl = `${myAxios.defaults.baseURL}/${tilesUrl}/{z}/{y}/{x}.png`;
                 // 列表
                 this.markersList = boxes;
                 // 添加透明结果图层
