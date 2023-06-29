@@ -9,6 +9,8 @@ import Vue from "vue";
 export const creatTileLayer = (layerId, path) => {
     return new Vue.prototype.$MapTalk.TileLayer(layerId, {
         'urlTemplate': path,
+        repeatWorld: false,
+        renderer:'canvas',
         subdomains: ['a', 'b', 'c', 'd'],
         // 移动缩放时强制渲染
         'forceRenderOnMoving': true,

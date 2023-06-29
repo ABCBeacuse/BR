@@ -20,7 +20,7 @@ export default {
             const nowLayer = creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.jpg")
             this.map = new this.$MapTalk.Map('img_container', {
                 center: [-0.09270712, 51.50615],
-                zoom: 17,
+                zoom: 4,
                 minZoom: 3,
                 maxZoom: 6,
                 baseLayer,
