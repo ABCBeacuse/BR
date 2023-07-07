@@ -109,7 +109,7 @@ export default {
                 this.associationList = [];
                 return
             }
-            const baseMapUrl = `${myAxios.defaults.baseURL}/${obj.tiles_url}/{z}/{y}/{x}.jpg`;
+            const baseMapUrl = `${myAxios.defaults.baseURL}/${obj.tiles_url}/{z}/{y}/{x}.png`;
             const layer = creatTileLayer(`base_${obj.id}`, baseMapUrl);
             this.mapObj.setBaseLayer(layer);
             this.associationList = await getNewMapListById(obj.id);
@@ -128,7 +128,7 @@ export default {
                 return;
             }
             this.initMapObj();
-            const baseTilesUrl = `${myAxios.defaults.baseURL}/${row.tiles_url}/{z}/{y}/{x}.jpg`;
+            const baseTilesUrl = `${myAxios.defaults.baseURL}/${row.tiles_url}/{z}/{y}/{x}.png`;
             // 切换新图图层，需要先清除之前添加的新图图层
             this.cleanCurrentNewLayer();
             this.currentNewLayer = creatTileLayer(`new_${row.id}`, baseTilesUrl);

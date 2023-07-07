@@ -16,8 +16,8 @@ export default {
     },
     methods: {
         init() {
-            const baseLayer = creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.jpg")
-            const nowLayer = creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.jpg")
+            const baseLayer = creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.png")
+            const nowLayer = creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.png")
             this.map = new this.$MapTalk.Map('img_container', {
                 center: [-0.09270712, 51.50615],
                 zoom: 4,
