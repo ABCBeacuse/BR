@@ -33,7 +33,7 @@
 <script>
 import BaseListLayout from "@/components/lists/BaseList.vue";
 import {combinationMap} from "@/config/combinationMap";
-import {getMarkersById} from "@/services/marker";
+import {generatorBox, getMarkersById} from "@/services/marker";
 import {creatTileLayer} from "@/utils/layerOptions";
 import myAxios from "@/plugins/myAxios";
 
@@ -68,13 +68,13 @@ export default {
             tips: [{class: 'el-icon-aim', text: "定位"}, {
                 class: 'el-icon-edit-outline',
                 text: "编辑"
-            }, {class: 'el-icon-delete', text: "删除"}]
+            }, {class: 'el-icon-delete', text: "删除"}],
+            editLayer: new this.$MapTalk.VectorLayer("editLayer")
         }
     },
     methods: {
         initMapObj() {
-            if (this.mapObj === undefined) {
-            }
+            if (this.mapObj === undefined) {}
         },
         renderElTags(baseId, newId) {
             const combination = (baseId === "" ? "no" : "ok") + (newId === "" ? "no" : "ok")
@@ -82,6 +82,11 @@ export default {
         },
         async flushMarkersList(obj) {
             const {baseId, newId} = obj;
+            if (this.currentTilesLayer !== undefined) {
+                this.mapObj.removeLayer(this.currentTilesLayer);
+            }
+            // 清除编辑图层
+            this.editLayer.clear();
             if (baseId !== "" && newId !== "") {
                 const {boxes, tilesUrl} = await getMarkersById(baseId, newId);
                 const baseMapUrl = `${myAxios.defaults.baseURL}/${tilesUrl}/{z}/{y}/{x}.png`;
@@ -90,11 +95,10 @@ export default {
                 // 添加透明结果图层
                 this.currentTilesLayer = creatTileLayer(`mark_${baseId}_${newId}`, baseMapUrl);
                 this.mapObj.addLayer(this.currentTilesLayer);
+                // 绘制编辑图层相关
+                generatorBox(boxes, this.editLayer);
             } else {
                 this.markersList = [];
-                if (this.currentTilesLayer !== undefined) {
-                    this.mapObj.removeLayer(this.currentTilesLayer);
-                }
                 this.currentTilesLayer = undefined;
             }
         }

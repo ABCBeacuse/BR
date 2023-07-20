@@ -1,4 +1,5 @@
 import Vue from "vue";
+import store from "@/store";
 
 /**
  * 获取 TileLayer 图层
@@ -7,10 +8,17 @@ import Vue from "vue";
  * @returns {*}
  */
 export const creatTileLayer = (layerId, path) => {
+    const mapObj = store.getters.getMapObj;
+    if (mapObj !== undefined) {
+        const layer = mapObj.getLayer(layerId);
+        if (layer) {
+            return layer;
+        }
+    }
     return new Vue.prototype.$MapTalk.TileLayer(layerId, {
         'urlTemplate': path,
         repeatWorld: false,
-        renderer:'canvas',
+        renderer: 'canvas',
         subdomains: ['a', 'b', 'c', 'd'],
         // 移动缩放时强制渲染
         'forceRenderOnMoving': true,

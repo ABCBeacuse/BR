@@ -3,7 +3,7 @@ import axios from "axios";
 const isDev = process.env.NODE_ENV === 'development'
 
 const myAxios = axios.create({
-    baseURL: isDev ? '/br' : '线上'
+    baseURL: isDev ? '/br' : 'http://120.26.74.75:8000/'
 })
 
 // 跨域

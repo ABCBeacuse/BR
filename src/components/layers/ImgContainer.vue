@@ -16,15 +16,13 @@ export default {
     },
     methods: {
         init() {
-            const baseLayer = creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.png")
-            const nowLayer = creatTileLayer("now_layer", "./tiles/now/{z}/{y}/{x}.png")
+            const baseLayer = creatTileLayer("base_layer", "./tiles/ori/{z}/{y}/{x}.jpg")
             this.map = new this.$MapTalk.Map('img_container', {
                 center: [-0.09270712, 51.50615],
                 zoom: 4,
                 minZoom: 3,
                 maxZoom: 6,
-                baseLayer,
-                layer: [nowLayer]
+                baseLayer
             })
             this.$store.commit("setMapObj", this.map)
         }
